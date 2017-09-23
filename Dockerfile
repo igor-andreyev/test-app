@@ -1,0 +1,12 @@
+FROM scratch
+
+ENV TESTAPP_LOCAL_HOST 0.0.0.0
+ENV TESTAPP_LOCAL_PORT 8080
+ENV TESTAPP_LOG_LEVEL 0
+
+EXPOSE $TESTAPP_LOCAL_PORT
+
+COPY certs /etc/ssl/
+COPY bin/linux-amd64/test-app /
+
+CMD ["/test-app"]
